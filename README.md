@@ -1,36 +1,47 @@
-# Throttle Quest v1.1 — Learning Expansion
+# Throttle Quest v2.0 — Arcade Edition
 
-A self-contained, account-free educational hill-climb game for grades 5–8. Open `index.html` in Chrome or host it on GitHub Pages. No dependencies or external assets are needed.
+A self-contained educational motorcycle hill-climb arcade game for grades 5–8, with a career garage, 64 motorcycles, 20 courses and optional local two-player practice. No account, external libraries, or network assets required.
 
-## Update an existing GitHub Pages site
+## Install or update
 
-Replace the repository's **index.html** and **README.md** with these two files. Keep the repository name and Pages URL unchanged. Existing career saves use the same local-storage key and save format, so they can carry forward on the same browser and site. Export a career backup before updating as a precaution.
+Replace **index.html** and **README.md** in the root of your existing `throttle-quest` GitHub Pages repository. Keep its name and Pages URL unchanged. No Learning Hub changes are needed. Students should export a career backup first (Settings). Existing careers use the same local storage key (`throttle-quest-career-v04`). Data is browser-local, does not sync between devices, and can be lost if browser data is cleared. Students can restore their own exported backup.
 
-## New in v1.1
+To test locally, extract the ZIP and open `index.html` in a supported browser that permits local files. GitHub Pages is recommended for classroom deployment.
 
-- First-launch learning setup with grade 5 as the default, grades 5–8, any combination of six subjects, and three learning-event frequencies. Change preferences anytime from Settings.
-- **17,637 grade-specific question variants**, including procedural mathematics and ELA, science, social studies, geography, technology and digital citizenship. Banks are deliberately unequal in size.
-- Persistent, without-replacement question decks for each grade and subject; recently asked questions are avoided when the deck cycles, and eligible missed questions are prioritized on later deck cycles. Mixed subjects are shuffled in balanced rounds. Answer order is randomized independently on each encounter.
-- Fuel stops, crash recovery and optional challenge bonuses now share the same career question engine. Local duels do not award career learning credit and use separate session history.
-- Records include grade and subject accuracy, topic-level accuracy, explored-bank counts, streaks, learning achievements, and CSV/print reports.
-- Riding physics, courses, rider controls, garage, bike catalog, paid parts, cosmetics, and coin rewards are retained from v1.0.
+## Cumulative release contents
 
-## Question coverage
+| Build | Included features |
+|---|---|
+| v1.0 | Career progression, original game-estimated physics, 64-bike catalog, 20 courses, paid upgrades and cosmetics, local duel, records and backup |
+| v1.1 | Grade 5–8 selection, six selectable subjects, three question frequencies, 17,637 question variants, persistent shuffled decks, balanced topic/subject rotation, randomized answer positions, learning records and export |
+| v1.2 | Individually styled courses, parallax scenery, terrain textures, tire marks, surface particles, atmospheric effects, smoothed camera |
+| v1.3 | Articulated motorcycle rig, distinct model families, eight tire treads, animated suspension and drivetrain, rider posture, visible customization and grime |
+| v1.4 | Workshop, live previews, itemized work orders, showroom for all 64 bikes, inspection screens and purchase/delivery animations |
+| v1.5 | Compact racing HUD, speed/RPM/gear, fuel, traction, course elevation, checkpoints, jump notifications, illustrated fuel/repair/sponsor questions |
+| v1.6 | Course briefings, victory podium and achievements, 20 course medals, four championship trophies, 101 collectible milestones |
+| v1.7 | Sound locked until three completed career rides AND 25 correct answers; each ride starts muted, manual opt-in, 25% default volume, mute on focus loss, no music; idle and low-graphics optimizations |
+| v2.0 | Cumulative release, updated branding and corrected obsolete development information; regression review |
+
+Factory starter configuration is included. New bikes, upgrades and cosmetics cost coins; previously purchased parts can be reinstalled without further charge. Duels are practice and do not grant career rewards. Sound is optional even after unlocking; the unlock is not a tamper-proof administrative control.
+
+## Learning coverage
 
 | Grade | Math | ELA | Science | Social studies | Geography | Technology | Total |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
+|---|---:|---:|---:|---:|---:|---:|---:|
 | 5 | 2692 | 778 | 261 | 55 | 258 | 118 | 4162 |
 | 6 | 3125 | 775 | 245 | 156 | 204 | 163 | 4668 |
 | 7 | 3125 | 775 | 245 | 155 | 184 | 154 | 4638 |
 | 8 | 2729 | 647 | 245 | 156 | 246 | 146 | 4169 |
 | Total | 11671 | 2975 | 996 | 522 | 892 | 581 | 17637 |
 
-Counts are generated, grade-specific prompt variants, not individually authored lessons. Some skills and prompts overlap grades. This is practice content, not a formal standards-aligned assessment. Smaller non-math banks should be expanded with additional original questions in future releases.
+Counts include generated variations, not individually authored lessons. Some prompts overlap grades. Questions do not repeat within an individual grade/subject deck cycle; smaller decks exhaust sooner. Question practice is not a formal standards-aligned assessment. Non-math factual banks can be expanded in future versions.
 
-## Local data
+## Release verification
 
-All career history and learning preferences remain on the browser/device; they do not sync between Chromebooks. Career backups include the new question history. Older subject totals are retained separately, and detailed grade/topic records start in v1.1. Clearing browser data removes local history unless a backup is restored.
+- JavaScript syntax checked; five original catalog/physics/mechanics/ledger/career script blocks remain byte-identical to v1.0 after text decoding. Learning engine remains identical to v1.1.
+- All 24 complete grade/subject question-deck cycles (17,637 questions), distinct answer options, correct-answer placement, mixed-subject rotation and serialized history tested.
+- Local Chromium interface tests: fresh setup, older save migration using simulated storage, balance and history retention, garage purchase/reinstall/affordability checks, 64 bike model renders, riding, pit refuel/recovery/sponsor, HUD, mobile/low graphics, medal and personal-best payout, championship claim, archived badges, practice duel isolation, muted startup, audio unlock and opt-in, volume, blur mute and ride reset.
+- Award tests use simulated finish outcomes; some transaction tests seed a temporary test balance. Test harness code is not included in the published file.
+- Direct file/site navigation was blocked by the test environment. Real hosted storage, school Chromebook performance, natural full runs of every course, and factual content review remain recommended before broad classroom deployment.
 
-## Testing
-
-Question generation, all 24 complete subject/grade deck cycles, answer-option uniqueness and position variation, state serialization and mixed-subject rotation were checked programmatically. Local Chromium smoke testing covered startup, settings, restored saved state, records, and entering a ride. Classroom Chromebook playtesting is still recommended. The game remains an illustrative simulation, not real vehicle tuning guidance.
+Artwork is original stylized 2D canvas rendering and not factory-accurate. This is a game with estimated vehicle characteristics, not real motorcycle tuning or riding guidance.
