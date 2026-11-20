@@ -1,6 +1,18 @@
-# Throttle Quest v2.5 — World, Career & Explorer Edition
+# Throttle Quest v2.6 — Garage & Learning Integrity
 
 A self-contained educational motorcycle hill-climb arcade game for grades 5–8, with a career garage, 64 motorcycles, 20 courses and optional local two-player practice. No account, external libraries, or network assets required.
+
+## What's new in v2.6
+
+- **Career learning integrity:** repeated rapid incorrect guesses (under 1.8 seconds each) trigger a warning at 3 within the most recent 10 attempts, and a temporary riding restriction at 5. Four consecutive wrong answers earn supportive review guidance, never a strike for errors alone. Flagged days in the previous 14 days lead to 10 minutes, 24 hours, 72 hours, then 7 days of career suspension. No automatic career reset.
+- **Persistent restrictions:** stored with the career and separately in browser storage, so refreshes and importing an older backup in the same browser profile do not remove the restriction. Browser storage can still be cleared or a different device used; this is not a secure teacher-enforced control.
+- **Academic practice:** a new non-reward practice mode is always available from Home, including while riding is restricted. It uses the player's grade and subject selection, tracks practice within that session, and pays no coins or riding rewards.
+- **Achievements pay coins:** first-time claims of ordinary achievements pay by tier: Bronze 50, Silver 100, Gold 175, Jade 250, Platinum 350, Legend 500. Achievements already completed earn a one-time catch-up payment on first v2.6 load; manufacturer Collector/Factory Team achievements keep their existing rewards without a duplicate v2.6 payment. Claim IDs are saved in each local career.
+- **Garage inspection:** original 2D motorcycle rig now has a larger detailed side-view inspector, zoomed views of front and rear tread, engine/exhaust and suspension, and stronger visible size differences among junior and large-displacement motorcycles in the garage/showroom. Stylized, not photorealistic.
+- **Per-bike guard:** modifications and cosmetics are preserved separately for each owned motorcycle even when two motorcycles use the same model or build. Upgrades preview before purchase, and owned changes should remain with the selected bike on switching/reopening.
+- **Economic policy:** motorcycle and equipment prices are unchanged until classroom balancing data justifies adjustments.
+
+**Install:** back up your career in Settings first. Replace only the repository-root `index.html` and `README.md` with the v2.6 files. Do not change the PlayForge hub. The review branch is not the published `main` branch.
 
 ## Install or update
 
@@ -26,6 +38,7 @@ To test locally, extract the ZIP and open `index.html` in a supported browser th
 | v2.3 | Seven motorcycle classes, steeper price bands, sequential ownership prerequisites, visible class ladder and purchase restrictions, existing garage grandfathered |
 | v2.4 | Manufacturer collection achievements, one-time reward claims, 5–10% brand-specific finish bonuses, unlockable paid sponsor graphics and factory team gear |
 | v2.5 | 60 permanent trail caches, collection book, optional one-attempt academic trail challenge, distinct ride reward breakdown |
+| v2.6 | Rapid-guess accountability, preserved careers, academic practice, achievement coin payouts, detailed garage inspection and independent-bike safeguards |
 
 Factory starter configuration is included. New bikes, upgrades and cosmetics cost coins; previously purchased parts can be reinstalled without further charge. Duels are practice and do not grant career rewards. Sound is optional even after unlocking; the unlock is not a tamper-proof administrative control.
 
