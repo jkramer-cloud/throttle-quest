@@ -1,22 +1,18 @@
-# Throttle Quest v2.6 — Garage & Learning Integrity
+# Throttle Quest v2.7.1 — Corrected Cumulative Release (v2.6 + v2.7 Phases 1–3)
 
-A self-contained educational motorcycle hill-climb arcade game for grades 5–8, with a career garage, 64 motorcycles, 20 courses and optional local two-player practice. No account, external libraries, or network assets required.
+A self-contained educational motorcycle hill-climb arcade game for grades 5–8, with a career garage, 64 motorcycles, 28 courses (27 career courses plus the practice road) and optional local two-player practice. No account, external libraries, or network assets required.
 
-## What's new in v2.6
+## Status and recommended installation
 
-- **Career learning integrity:** repeated rapid incorrect guesses (under 1.8 seconds each) trigger a warning at 3 within the most recent 10 attempts, and a temporary riding restriction at 5. Four consecutive wrong answers earn supportive review guidance, never a strike for errors alone. Flagged days in the previous 14 days lead to 10 minutes, 24 hours, 72 hours, then 7 days of career suspension. No automatic career reset.
-- **Persistent restrictions:** stored with the career and separately in browser storage, so refreshes and importing an older backup in the same browser profile do not remove the restriction. Browser storage can still be cleared or a different device used; this is not a secure teacher-enforced control.
-- **Academic practice:** a new non-reward practice mode is always available from Home, including while riding is restricted. It uses the player's grade and subject selection, tracks practice within that session, and pays no coins or riding rewards.
-- **Achievements pay coins:** first-time claims of ordinary achievements pay by tier: Bronze 50, Silver 100, Gold 175, Jade 250, Platinum 350, Legend 500. Achievements already completed earn a one-time catch-up payment on first v2.6 load; manufacturer Collector/Factory Team achievements keep their existing rewards without a duplicate v2.6 payment. Claim IDs are saved in each local career.
-- **Garage inspection:** original 2D motorcycle rig now has a larger detailed side-view inspector, zoomed views of front and rear tread, engine/exhaust and suspension, and stronger visible size differences among junior and large-displacement motorcycles in the garage/showroom. Stylized, not photorealistic.
-- **Per-bike guard:** modifications and cosmetics are preserved separately for each owned motorcycle even when two motorcycles use the same model or build. Upgrades preview before purchase, and owned changes should remain with the selected bike on switching/reopening.
-- **Economic policy:** motorcycle and equipment prices are unchanged until classroom balancing data justifies adjustments.
+**This is the corrected cumulative ZIP.** It restores the v2.6 learning-integrity, achievement reward, detailed garage and per-bike protection systems that were absent from the first reconstructed v2.7 ZIP, while retaining v2.7's eight added courses, stoppie mechanic, helmet graphics and tire trails. No previous version needs to be installed first.
 
-**Install:** back up your career in Settings first. Replace only the repository-root `index.html` and `README.md` with the v2.6 files. Do not change the PlayForge hub. The review branch is not the published `main` branch.
+**Before publishing:** export your career from **Settings → Export**. Extract the ZIP and replace both repository-root files (`index.html`, `README.md`) only when ready; do not merge fragments from older versions. Existing career storage and JSON backups remain `throttle-quest-career-v04`. In the same browser profile, the v2.6 separate learning-integrity storage is also read and retained. The original v2.7 ZIP should **not** be uploaded.
+
+**No GitHub or PlayForge changes were made by this build.** This archive is for review and later manual publication.
 
 ## Install or update
 
-Replace **index.html** and **README.md** in the root of your existing `throttle-quest` GitHub Pages repository. Keep its name and Pages URL unchanged. No Learning Hub changes are needed. Students should export a career backup first (Settings). Existing careers use the same local storage key (`throttle-quest-career-v04`). Data is browser-local, does not sync between devices, and can be lost if browser data is cleared. Students can restore their own exported backup.
+Replace **index.html** and **README.md** in the root of your existing `throttle-quest` GitHub Pages repository. Keep its name and Pages URL unchanged. No PlayForge/Learning Hub changes are needed if its existing card already links to the game. Students should export a career backup first (Settings). Existing careers use the same local storage key (`throttle-quest-career-v04`). Data is browser-local, does not sync between devices, and can be lost if browser data is cleared. Students can restore their own exported backup.
 
 To test locally, extract the ZIP and open `index.html` in a supported browser that permits local files. GitHub Pages is recommended for classroom deployment.
 
@@ -37,10 +33,77 @@ To test locally, extract the ZIP and open `index.html` in a supported browser th
 | v2.2 | Distinct animated landmark scenes for all 20 courses, additional deterministic trailside props and ambient effects, reduced-detail mode preserved |
 | v2.3 | Seven motorcycle classes, steeper price bands, sequential ownership prerequisites, visible class ladder and purchase restrictions, existing garage grandfathered |
 | v2.4 | Manufacturer collection achievements, one-time reward claims, 5–10% brand-specific finish bonuses, unlockable paid sponsor graphics and factory team gear |
-| v2.5 | 60 permanent trail caches, collection book, optional one-attempt academic trail challenge, distinct ride reward breakdown |
-| v2.6 | Rapid-guess accountability, preserved careers, academic practice, achievement coin payouts, detailed garage inspection and independent-bike safeguards |
+| v2.5 | Original 60 permanent trail caches, collection book, optional one-attempt academic trail challenge, distinct ride reward breakdown |
+| v2.6 | Learning-integrity warnings and temporary non-destructive riding restrictions; academic practice; tiered badge coin rewards with a one-time ledger; five detailed garage inspection views; per-bike configuration guards |
+| v2.7 Phase 1 | More layered bike/rider art, eight paid helmet finishes, four introductory tire trails and bike-specific appearance |
+| v2.7 Phase 2 | Eight helmet decals, five premium tire trails, expanded stadium lighting/stands/banners, updated workshop controls and free previews |
+| v2.7 Phase 3 | Eight new longer courses (550–1,600 m), tougher late-career routes and timed targets, stoppie/nose-wheelie physics and separate balance meter, crash/question recovery, stored ride records and stoppie milestones |
+| v2.7.1 | Restores and validates the missing v2.6 systems in the cumulative v2.7 game, updates achievement display and corrects the front-wheel rescue panel |
 
 Factory starter configuration is included. New bikes, upgrades and cosmetics cost coins; previously purchased parts can be reinstalled without further charge. Duels are practice and do not grant career rewards. Sound is optional even after unlocking; the unlock is not a tamper-proof administrative control.
+
+## v2.6 systems restored in this corrected release
+
+### Academic practice and learning integrity
+
+- Students can use **Home → Academic practice** at any time, including during a career restriction. Practice draws from the selected grade (5–8) and subjects, provides explanations and a running session score, and **does not award coins or alter career question totals**.
+- During paid career racing, the response timer looks for repeated unusually fast **incorrect** submissions (under 1.8 seconds). Three rapid wrong answers among the most recent 10 responses on that local day trigger a warning; five cause a temporary career pause. Four ordinary wrong answers in a row prompt supportive review guidance **without a strike**.
+- Flagged days within the rolling 14-day period escalate to **10 minutes, 24 hours, 72 hours, then seven days**, without deleting motorcycles, coins, achievements or saved progress. A flagged in-progress ride ends without pending ride earnings; ordinary learning and purchases remain available. Subsequent rapid wrong attempts after the same day has already been flagged do not create extra strikes for that day.
+- Restrictions are saved inside the career and separately in browser-local storage under `throttle-quest-career-v04-integrity-v26`. Importing an older backup on the same browser profile does not erase an active restriction. This is **not tamper-proof or suitable as an official disciplinary system**: switching devices, clearing browser data or modifying the browser can bypass it. The intent is to encourage careful academic engagement, not to penalize genuine mistakes.
+
+### Achievement coin rewards
+
+- Each ordinary achievement awards coins once at its tier: **Bronze 50, Silver 100, Gold 175, Jade 250, Platinum 350, Legend 500**. The `badgeCoinsPaid` ledger is retained in career saves and backups; repeated page loads, revisiting Records, and repeated saves do not duplicate a claimed reward.
+- Achievements already satisfied in a prior saved career receive any **previously unpaid** one-time catch-up awards on the first updated save. Manufacturer Collector / Factory Team rewards remain on their separate reward paths and are excluded from these badge payouts to prevent double payment.
+- The first successful career stoppie still carries its separate 45-coin one-time bonus. Rewards are triggered by progress and saved career activity, including garage milestones; they do not require finishing a ride after reaching a milestone.
+
+### Detailed, independent motorcycle garage
+
+- **My Garage → Detailed motorcycle inspection** provides larger zoomed component views: entire motorcycle, front tread, rear tread, engine/exhaust, and front suspension, using the installed or previewed mechanical setup. This remains stylized artwork rather than photographic/OEM-accurate geometry.
+- Mechanical and cosmetic purchases remain tied to each separately owned motorcycle. Reinstalling a previously purchased part for the same motorcycle costs nothing; the same premium change on another motorcycle still costs coins. Workshop previews do not deduct coins until purchased.
+
+## v2.7: new content and controls
+
+### New courses (28 total)
+
+The 20 existing courses and their unlocks, segments and original medal times are retained. These eight additions are progressively tougher, have explicitly longer time limits and are added after the existing courses in the career listing. All course previews and scenery are drawn locally in Canvas.
+
+| Added course | Distance | Time limit | Environment |
+|---|---:|---:|---|
+| Neon Arena MX | 550 m | 150 s | Floodlit stadium |
+| Grand Prix Supercross | 650 m | 190 s | Championship stadium |
+| Frostline Traverse | 780 m | 210 s | Alpine terrain |
+| Red Mesa 1000 | 1,000 m | 245 s | Canyon endurance |
+| Endless Wetlands | 920 m | 245 s | Mud / grass endurance |
+| Skybridge Quarry | 1,200 m | 275 s | Rock quarry endurance |
+| Duststorm Marathon | 1,350 m | 310 s | Sand marathon |
+| Evercrest 1600 | 1,600 m | 350 s | Final mixed-terrain test |
+
+The three collectibles per added course increase the full trail collection from 60 to 84, with collection milestones at 75 and 84. The 20 original routes still behave as before. Course time limits are game-clock limits, not real-world speed targets. Late routes are intended for progressively upgraded bikes; starter motorcycles may struggle.
+
+### Stunts and balance
+
+- **W / up arrow**: throttle. **S / down arrow**: brake. **A / left arrow**: lean back. **D / right arrow**: lean forward. Touchscreen buttons remain available.
+- To try a **stoppie (nose wheelie)**, build speed on suitable ground, then hold **S + D** briefly. As the back lifts, use **A** to keep from going over the bars. This is deliberately difficult. The front-wheel balance meter shows a separate safe and danger range; it does not replace the established rear-wheelie meter.
+- The first successful career stoppie earns **45 bonus coins once per career**. Later successes are recorded but do not repeat that reward. One-question balance rescue may be offered within the existing per-ride limits; the question itself does not award coins. Local two-player races remain non-rewarding practice.
+- Best front-wheel stoppie duration is recorded with the ride and on the Records page, including achievements. Existing wheelie records and reward logic are retained.
+
+### Motorcycle appearance
+
+Under **My Garage → Custom graphics & rider gear**, preview and unlock new helmet colors (180 coins), helmet emblems (200 coins) and tire effects (240–420 coins). The factory color, unadorned helmet and no tire effect are free. Cosmetic purchases attach to the selected motorcycle, can be reinstalled on that motorcycle without paying again, and are saved inside the existing career backup. The effects are visual only, without speed or traction boosts. Low graphics mode skips tire effect particles. Existing paid upgrades and brand sponsor designs are preserved.
+
+### Achievement awards
+
+Ordinary achievement tiers pay the fixed one-time rewards listed in the v2.6 section above, and the 45-coin first-stoppie reward is separate. `badgeCoinsPaid`, earned badge IDs, and academic progress are included in saved careers. Repeated rapid incorrect guesses can temporarily restrict riding, **but never automatically reset a career**. Normal incorrect answers do not create penalty strikes.
+
+### Verification performed for v2.7.1
+
+- **Source checks:** all eight inline JavaScript blocks passed Node.js syntax validation; HTML element IDs are unique. No external libraries or network requests are required for gameplay.
+- **Headless Chromium (25 targeted regression assertions):** clean startup, 28 courses, 64 catalog motorcycles, seven bike price tiers, 140+ achievement milestones, exact 50/100-coin Bronze/Silver test payouts, zero repeat claims, retention of existing v2.6 integrity and badge fields through career validation, first-time paid helmet color and free re-equipping, separate purchases on a second bike, independent mechanical setup changes, slow wrong answers never causing a strike, warning after three rapid wrong responses and a ten-minute pause after five, independently stored restrictions and preservation during an old backup import, practice during restriction, and baseline physics stability on each course. No browser JavaScript exceptions in those flows.
+- **Real in-race quiz flow:** a five-response rapid guessing scenario invoked the actual question UI and pause flow; the ride exited without pending coin payout and the saved career remained intact.
+- **Stoppie rescue:** separate front-wheel rescue banner, correct balance-station artwork and no-coin reward were verified.
+- **The test harness was not included in the ZIP.** These checks are simulated and do not replace hands-on, full-course playtesting or real district Chromebook performance/graphics testing. Existing student career files were not provided; simulated v2.6-profile data was used for migration tests.
+- **Provenance:** the playable content is built from the archived v2.5 game plus reconstructed v2.7 additions and restored v2.6 functionality inspected against the source currently available in the linked Throttle Quest GitHub repository. It is a feature-level integration, not a byte-for-byte copy of every prior unreleased development file.
 
 ## Learning coverage
 
@@ -80,9 +143,10 @@ The Records collection book tracks distinct models, not duplicate purchases. Cla
 
 ### Trail explorer
 
+- The original 20 courses contain 60 caches; v2.7 adds 24 more across the new eight courses, for 84 total.
 - Each course contains three consistently positioned collectible caches worth 80, 120 and 160 coins. Ride past a gold marker to collect it. The cache is not a hazard; it does not affect physics.
 - Each cache can be collected once per career, including across replays, and is committed with its coin reward when the ride ends. Leaving the page mid-ride before the results are saved does not commit that ride's caches or pending coins.
-- Records includes a 60-cache collection tracker, plus achievements at 5, 15, 30, 45 and 60.
+- Records includes an 84-cache collection tracker, plus achievements at 5, 15, 30, 45, 60, 75 and 84.
 - Around two-thirds of a course, an optional Deen trail challenge offers one randomly drawn grade/subject-appropriate question for 60 coins. A wrong answer or skip simply resumes the ride; no crash or penalty. One opportunity per career ride. Local duels remain practice-only and do not grant trail or sponsor rewards.
 
 ### Verification
