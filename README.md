@@ -1,3 +1,97 @@
+# Throttle Quest v2.9.1 — Full 64-Motorcycle Reconstruction
+
+**Status: Complete manually installable review release.** Based directly on the v2.9 three-bike pilot and the corrected v2.8 cumulative game. GitHub and PlayForge have not been changed.
+
+## What has been built
+
+- Extended the approved structural drawing system to **all 64 catalog motorcycles**: seven trail, 42 motocross, 11 enduro, two cross-country and two electric.
+- The three approved reference designs — Honda CRF110F, Yamaha YZ450F and Sur-Ron Light Bee X — are **unchanged at the pixel level** for normal riding, dealership and side-profile views. All 61 other catalog motorcycles use the new reconstructed artwork.
+- Correct component attachment points for wheel axles, engine and motor casings, swingarms, frame rails, steering heads, seats and handlebars. Reduced the oversized/floating fairings and plastic-on-fork overlaps of v2.8.
+- Proportions now respond to the real catalog's engine-size classes and riding disciplines; beginner bikes are compact, full motocross bikes are taller, enduro bikes carry appropriate guards and bodywork, cross-country bikes combine racing stance and fuel-bodywork styling, and a small vintage subset has more period-appropriate panels.
+- Two-stroke and four-stroke engines have different visible header/expansion details. Electric motorcycles have a visible battery, electric motor and controller/upgrade markings, and **no exhaust manifold, header, muffler or pipe**.
+- Uses the same redesigned motorcycle rendering for **racing, garage, shop, thumbnails and detailed inspections**, including wheel animation and rider placement.
+- All existing bike catalog entries, gameplay physics, learning safeguards, reward systems, 28 courses, purchases and local career saves remain from v2.8. This is an artwork-focused update, not a motorcycle balance pass.
+
+**Artwork scope:** These are original, stylized family-aware procedural graphics, not exact factory drawings. Individual motorcycles in the same family share some body-panel shapes; engine class, tire/frame geometry, powertrain, brand colors and certain details differentiate them. Further hand-authored model-by-model art refinement remains possible after classroom visual review.
+
+## Download / install — you control GitHub
+
+1. Export a career backup from Settings in the existing game before replacing anything.
+2. Extract this ZIP. The **only two files to upload** to the existing `jkramer-cloud/throttle-quest` repository root are `index.html` and `README.md`.
+3. Replace those two existing files, committing the changes yourself. **Do not upload or replace the `REVIEW/` folder.**
+4. Refresh the game in a Chromebook, inspect a trail, MX, enduro, cross-country and electric bike, run a short race, and confirm your career/settings still load. The PlayForge launch link does not need updating.
+
+The career save key remains `throttle-quest-career-v04`. The v2.6 separate learning-integrity local state is preserved. Data lives in each browser/profile and is not remotely synced.
+
+## Visual evidence supplied
+
+- `REVIEW/catalog-sheet-1.png` to `catalog-sheet-4.png`: all **64** catalog motorcycles, clearly labeled with riding family and cycle.
+- `REVIEW/QA_REPORT.json`: structural/screenshot testing and counts.
+- `REVIEW/v29-approved-three-bikes.png`: the three previously approved reference bikes.
+
+## Verification
+
+- Eight embedded JavaScript scripts pass `node --check` syntax validation.
+- Catalog remains at 64 models, with 28 courses, and the nonvisual JavaScript sections are byte-identical to the v2.9 pilot (which inherited v2.8 cumulative).
+- Headless Chromium successfully rendered **all 64 models** in normal, rider/pose, dealership and thumbnail modes, with no page errors.
+- All three approved prototype motorcycles are pixel-identical to the pilot build; all 61 other catalog motorcycles produced changed side-profile drawings.
+- Electric battery/controller/motor upgrades show visual differences; engine/exhaust cosmetic configurations still affect gasoline bikes.
+- ZIP integrity and its file SHA-256s were checked after creation.
+
+**Limits:** A passing browser-render test is not a substitute for direct Chromebook gameplay, save/import regression, long-race performance, and review of every art interaction at classroom resolution. Do not overwrite a student's career without a backup.
+
+---
+
+## Earlier releases (historical documentation)
+
+# Throttle Quest v2.9 — Motorcycle Reconstruction Pilot (3 Bikes)
+
+**Development review build, not yet a full 64-bike visual overhaul.** Based on the complete v2.8 ZIP. GitHub and PlayForge were not changed.
+
+## This build fixes three reference motorcycles first
+
+| Motorcycle | Category | What changed |
+| --- | --- | --- |
+| Honda CRF110F | Beginner trail | Shorter rounded plastics, lower stance, correctly positioned small engine, slimmer frame and swingarm, wheel-mounted fender and fork |
+| Yamaha YZ450F | Full-size motocross | Taller stance, sharper but restrained radiator shrouds, separated fuel tank and number panel, exposed four-stroke engine and slim header, coherent front fork |
+| Sur-Ron Light Bee X | Electric | Compact battery-and-motor layout, small top cover, exposed triangle frame, short rear/fender profile, **no combustion engine, fuel tank, header pipe or muffler** |
+
+These are original stylized game interpretations, not licensed factory technical drawings or validated physical measurements.
+
+### What the reconstruction changes
+
+- Uses model-specific *attachment points* for seat, steering head, bars, footpeg, swingarm pivot, fork, and wheels.
+- Groups the rendering into deliberate layers: wheels and drivetrain, rear suspension and frame, powertrain, limited body panels, seating, steering/fender, controls and rider.
+- Restrains plastic panel extents so the radiator shroud does not reach across the fork or hide the entire engine.
+- Draws both unoccupied showrooms and active riding from the same motorcycle geometry; the rider's hand and foot attachment points follow the reconstructed frame.
+- Preserves colors, available upgrades, wheel animations, tire treads and suspension poses.
+
+**61 other motorcycle models still use their v2.8 rendering**, intentionally unchanged. They are not yet endorsed for visual quality. The completed game still contains all 64 bikes and 28 courses.
+
+## How to review — no publishing required
+
+1. Open `REVIEW/v29-before-after.png` to compare the three motorcycles with their v2.8 predecessors.
+2. Open `REVIEW/v29-silhouette-review.png` to inspect the new silhouettes without the distraction of colors.
+3. Open `REVIEW/v29-pilot-contact.png` for dealership, side profile and simulated riding views.
+4. To try the complete prototype game, open `index.html` locally in a browser that permits local files, or test it in a private staging environment. The starter Honda CRF110F is visible immediately; the other two models can be inspected through the dealership without purchase.
+5. If you choose to publish later, **only `index.html` and `README.md` replace the repository-root files.** Do not upload `REVIEW/`. Export a career backup first (Settings), then perform a Chromebook check.
+
+## Preservation and tests
+
+- All eight inline JavaScript sections: syntax checked.
+- 64/64 motorcycles: headless browser drawing with rider, pose changes and thumbnail rendering passed.
+- Source catalog and non-visual JavaScript code: identical to v2.8.
+- Non-pilot bitmap spot checks: byte-identical output to the same models under v2.8.
+- Academic integrity restrictions, academic practice, badge claims, backup/export and career ID/storage logic: preserved at source level.
+- Save key remains `throttle-quest-career-v04`, alongside the v2.6 separate integrity storage.
+- No terrain physics, handling, rewards, course difficulty, purchases or motorcycles were added/removed.
+
+**Outstanding before classroom release:** Chromebook real-device riding tests, garage selection and purchase/preview checks, save/export/import checks against realistic fictional existing careers, and subjective art review. Rendering tests are not proof that every game interaction has been tested end-to-end.
+
+---
+
+## v2.8 cumulative documentation (preserved)
+
 # Throttle Quest v2.8 — Motorcycle Visual Identity Update
 
 ## Installation (you upload)
