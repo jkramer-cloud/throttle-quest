@@ -1,3 +1,29 @@
+# Throttle Quest v2.8 — Motorcycle Visual Identity Update
+
+## Installation (you upload)
+
+This is a **complete cumulative release** built directly from the corrected v2.7.1 release. To install it, first export a career backup from **Settings → Export** in Throttle Quest. Then replace **both `index.html` and `README.md`** in the root of your existing `jkramer-cloud/throttle-quest` GitHub repository. Keep other files and PlayForge links unchanged.
+
+## New in v2.8
+
+- Different vehicle silhouettes: compact trail, aggressive motocross, enlarged enduro, cross-country, vintage and slender electric.
+- Different tank/shroud, tail, seat profile, headlight and front-fender shapes tied to vehicle type, power class and historical model.
+- Electric motorcycles show a battery enclosure and sealed electric motor with **no muffler, header or exhaust system**. The garage inspector identifies their battery/motor rather than describing them as a combustion engine.
+- Updated rider posture according to the family of motorcycle.
+- The same rendered bike design is used in rides, the garage, shop, thumbnails and inspections.
+
+The change is primarily visual. Wheel centers, gameplay physics, purchases, achievements, educational questions, local saves, v2.6 learning-integrity safeguards, v2.7 courses, helmet accessories and tire trails remain as before. The unchanged save key is `throttle-quest-career-v04`, and the separate integrity state is retained.
+
+**Note:** Only the existing motorcycle disciplines are represented in the catalog. Vintage is a subset of existing motocross/enduro models, not a new shop class. This update does not add a new trials, supermoto or special hill-climb motorcycle catalog.
+
+## Testing
+
+The cumulative source was checked against the original v2.7.1 file. Browser tests were run using representative trail, motocross, enduro, cross-country and electric previews, and the original source catalog and physics were kept unchanged. Please verify in a school Chromebook before rolling it out to students.
+
+---
+
+## Prior release details (v2.7.1)
+
 # Throttle Quest v2.7.1 — Corrected Cumulative Release (v2.6 + v2.7 Phases 1–3)
 
 A self-contained educational motorcycle hill-climb arcade game for grades 5–8, with a career garage, 64 motorcycles, 28 courses (27 career courses plus the practice road) and optional local two-player practice. No account, external libraries, or network assets required.
