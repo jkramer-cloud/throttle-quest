@@ -1,3 +1,122 @@
+# Throttle Quest v3.3 — Technical Terrain / Batch 4
+
+Cumulative replacement for v3.2. Copy `index.html` and `README.md` to the existing repository root. The game remains a single offline-ready HTML file. Back up your current career and repository before replacing it. No GitHub or PlayForge changes have been made.
+
+## Batch 4 changes
+
+- 14 technical-riding badge milestones for successful manual jumps, jump height, airtime, distance, clean landing streaks, distinct clean obstacle clearances and qualified retro/technical finishes. Technical badges appear under Records > Achievements > Technical riding. Existing badge milestones remain available.
+- New technical progress is credited only after a completed career course with at least one correct in-ride answer. Only manual landings with at least 2 m forward displacement and 10 cm clearance count, once per 8 m landing zone per run. A collision or crash resets the current clean streak. Distinct obstacle badges track course ID and obstacle location across rides; replaying one log does not count as a new obstacle. Local duels do not contribute. New badges use the existing one-time tier payouts of 50–500 coins (new technical tiers currently 50–250). No automatic coins for each manual jump. Ramp landing rewards remain capped at three per ride and require forward distance and a distinct landing zone. Repeated normal course finishes still earn existing finish rewards.
+- Fixed duplicate finish-time achievement payouts by routing them through the existing paid-badge ledger. Achievement rewards are shown separately in the results. Previous balances are not confiscated. Old saves initialize the technical statistics to zero; historical manual jumps cannot be reconstructed from prior records.
+- Fuel recovery still requires the configured number of correct answers. Optional question skips can no longer bypass termination of a ride flagged for repeated rapid wrong answers. Existing escalating local restrictions remain; no career deletion. Browser-local state is not tamper-proof.
+- Made the early Meadow Ridge/Pine Summit obstacles more forgiving; widened and lowered Pine Summit's three solid obstacles, without removing them. Assisted low-speed uphill traction receives a bounded boost; automatic downshifting better handles slow climbs. Advanced obstacles and the straightaway layout remain unchanged. Course intro shows setup recommendations. Hard-landings and obstacle crashes now take priority over a simultaneous finish.
+- All 32 course IDs, 129 terrain features and 64 catalog models are retained. Existing purchases, records and unlocks remain. Prior course times may not be directly comparable after terrain changes.
+
+## Verification and limits
+
+JavaScript syntax passed. Eleven Chromium checks passed with a simulated localStorage object and temporary test hooks: catalog/course/feature counts, old-save initialization, manual jump and no double jump, qualified ride and unique obstacle tracking, 14 technical badges and single payout, ride start, wrong-answer fuel gate, correct-answer fuel recovery, finish accounting and career validation, technical badge filter, and rapid-guessing optional-skip protection. No page errors in these checks. Test hooks are NOT in the delivered HTML.
+
+A separate deterministic physics sweep attempted all 32 tracks using the starter and two higher-end bikes with terrain-selected tires and shorter gearing. The controller brakes before obstacles but does not manually jump; it simulates refueling/recovery and is not a human playthrough. 27/32 tracks finished with at least one of the three setups (70/96 attempts). The starter finished Meadow Ridge, Pine Summit, Retro Ramp Rally, and several additional tracks without crashes. Black Rock Peak, Skybridge, Everest, Timber Trials and Ironwood Extreme Enduro did not finish in this sweep; manual riding, alternative setups, and additional difficulty tuning may be required. This is not proof that those tracks are impossible or fully balanced. Real Chromebook performance, storage persistence, actual keyboard/touch playthroughs on school devices and full course solvability remain to be checked before classroom rollout. The existing question bank was not independently re-fact-checked in this batch.
+
+### Physics sweep (each cell: outcome / meters / seconds / crashes)
+
+```text
+Course | CRF110F stock | CRF450X tuned | KTM 500 EXC-F tuned
+tq-meadow Course complete/350/25/0 Course complete/350/22/0 Course complete/350/21/0
+tq-pines Course complete/425/38/0 Course complete/425/28/0 Course complete/425/28/0
+tq-dunes Course complete/470/32/0 Course complete/470/26/0 Course complete/470/26/0
+tq-bog Course complete/490/36/0 Course complete/490/27/0 Course complete/490/26/0
+tq-jumps Course complete/510/32/0 Course complete/510/27/0 Course complete/510/26/0
+tq-enduro stalled/155/43/1 stalled/305/56/2 stalled/307/63/3
+tq-road Course complete/600/29/0 Course complete/600/21/0 Course complete/600/21/0
+tq-canyon Course complete/490/36/0 Course complete/490/30/0 Course complete/490/29/0
+tq-coast stalled/335/44/0 Course complete/520/30/0 Course complete/520/30/0
+tq-rain stalled/289/42/0 Course complete/540/34/1 Course complete/540/34/1
+tq-quarry stalled/140/48/2 Course complete/515/43/2 Course complete/515/43/2
+tq-stadium Course complete/465/31/0 Course complete/465/26/0 Course complete/465/26/0
+tq-volcano Course complete/550/43/0 Course complete/550/34/0 Course complete/550/36/0
+tq-crown Course complete/600/56/1 stalled/244/45/1 stalled/244/45/1
+tq-orchard Course complete/500/36/1 Course complete/500/25/0 Course complete/500/24/0
+tq-alpine Course complete/500/34/0 Course complete/500/26/0 Course complete/500/26/0
+tq-oasis Course complete/500/36/0 Course complete/500/31/0 Course complete/500/31/0
+tq-marsh Course complete/500/40/1 Course complete/500/29/0 Course complete/500/29/0
+tq-redmesa Course complete/500/36/0 Course complete/500/29/0 Course complete/500/29/0
+tq-final stalled/204/35/1 Course complete/500/28/0 Course complete/500/27/0
+tq-arena-night Course complete/550/33/0 Course complete/550/28/0 Course complete/550/27/0
+tq-stadium-finals Course complete/650/40/0 Course complete/650/33/0 Course complete/650/33/0
+tq-frostline stalled/629/76/4 Course complete/780/44/1 Course complete/780/45/1
+tq-mesa-endurance stalled/280/42/1 Course complete/1000/58/1 Course complete/1000/57/1
+tq-marsh-endurance Course complete/920/80/2 Obstacle collision/401/55/9 stalled/410/48/1
+tq-skybridge Obstacle collision/380/56/9 Obstacle collision/947/80/9 Obstacle collision/947/79/9
+tq-dune-marathon stalled/671/63/0 Course complete/1350/63/0 Course complete/1350/62/0
+tq-everest Obstacle collision/445/56/9 Obstacle collision/1140/75/9 Obstacle collision/1140/74/9
+tq-retro Course complete/530/30/0 Course complete/530/23/0 Course complete/530/23/0
+tq-trials-garden Obstacle collision/68/57/9 Obstacle collision/68/48/9 Obstacle collision/67/48/9
+tq-hard-enduro Time limit/355/120/7 Obstacle collision/127/69/9 Obstacle collision/127/69/9
+tq-super-rhythm Course complete/636/37/0 Course complete/636/27/0 Course complete/636/27/0
+```
+
+---
+
+# Previous development notes
+
+# Throttle Quest v3.2 — Course Expansion, Batch 3
+
+Cumulative build based on v3.1 Batch 2. Replace `index.html` and `README.md` in the existing repository when ready; export a career backup first. No live GitHub or PlayForge changes have been made.
+
+## Course expansion
+
+- 32 total courses (28 retained, four new), 129 authored technical features across 31 courses. Redline Straightaway is unchanged. All 28 original course IDs, base segment geometry, lengths, unlock thresholds, finish rewards and medal targets are preserved. The 28 pilot features from v3.1 are unchanged; 20 previously unmodified courses now have technical features. Previous personal bests and medals are retained, but times from before terrain changes are not directly comparable. New courses count toward the same career unlock progression. The existing 84-cache achievement milestone is retained; the course collection book now includes 96 caches. New milestone/reward balancing is deferred to Batch 4.
+
+| New course | Length | Unlock | Focus |
+|---|---:|---|---|
+| Retro Ramp Rally | 530 m | Immediately | Classic 8-bit-inspired side-view time attack with two repeated ramp sequences, flat runs, tabletop, paired jumps and whoops. Pixel-inspired stadium backdrop, existing rider and physics. |
+| Timber Trials | 475 m | 3 unique career finishes | Low-speed logs, rock gardens, short ledges and balance. |
+| Thunder Dome Supercross | 636 m | 8 unique career finishes | Triples, tabletop sections and extended rhythm bumps. |
+| Ironwood Extreme Enduro | 750 m | 12 unique career finishes | Rock, roots, mud, steep climbs and solid hazards. |
+
+Retro is an original course inspired by classic motocross games, not an Excitebike recreation. The repeated sections form a single continuous point-to-point time attack; no separate lap system, lane switching, AI competitors, overheating redesign, or track editor has been implemented. The existing simulator's temperature, educational questions, jumping, crash recovery, anti-guessing controls, unlocks and garage remain intact. Use the Tracks filter to choose Retro motocross, Trials, Enduro / hill climb, MX / stadium, Technical terrain or Speed testing. New course art reuses appropriate world scenery and existing motorcycle/rider artwork.
+
+## Verification
+
+- Chromium loaded all 32 courses with no uncaught page errors in the test. Geometry checks passed: segments are contiguous, feature spans within bounds and non-overlapping; original course metadata and v3.1 pilot features match exactly. A fresh v3.1 career object validated in v3.2.
+- 386 terrain-render checks (standard and low graphics; starts, midpoints, and every obstacle location). Retro course filter returned exactly Retro Ramp Rally.
+- 17 solid obstacles on the two new technical courses passed isolated low-speed crossing simulations using a factory YZ450F. These tests start near each obstacle, not a full course.
+- A controlled starter-bike simulation finished all 530 m of Retro Ramp Rally in 44.03 seconds, with six natural jumps. This is a physics test with automated throttle/lean, not a human classroom playthrough or proof of all jump timing/medal targets.
+- Full course completion, achievement and reward balancing, existing record comparability, educational end-to-end regression testing and real Chromebook/touchscreen performance remain outstanding. Batch 4 is intended to address balancing and testing. No test hooks shipped.
+
+---
+
+# Throttle Quest v3.1 — Technical Terrain, Batch 2
+
+Cumulative update based on the recovered v3.0 Batch 1 ZIP. Extract and replace `index.html` and `README.md` in the existing repository only when ready. Export a career backup first. No GitHub or PlayForge changes have been made.
+
+## What's new
+
+- 28 authored terrain features on seven existing courses: Meadow Ridge (3), Pine Summit (4), Copper Dunes (3), Thunder Bog (4), Skyline MX (3), Black Rock Peak (6), and Granite Quarry (5). The other 21 courses remain unchanged for Batch 3. All 28 courses retain their IDs, lengths, gates and reward definitions.
+- Fallen logs, boulders, rock ledges, deep ruts, rolling slopes and rhythm bumps change the actual ground profile. Logs, boulders and ledges have front- and rear-wheel contact tests, speed loss, suspension compression, and a speed/impact-dependent crash condition. A front-wheel lift reduces impact; a correctly timed jump can avoid contact. Ruts and bumps alter slope, surface grip and suspension motion.
+- Upcoming-obstacle warnings appear within 45 meters and yellow trailside warning signs mark obstacles. The course renderer uses the same terrain profile as the physics. Both graphics quality modes show hazards.
+- Hard obstacle strikes use the existing crash recovery question and checkpoint. If a checkpoint is too close to an obstacle, recovery moves the bike back to a clear approach. No new obstacle coin rewards, achievement unlocks, or learning-integrity changes. Existing jump reward path ignores a natural-jump touchdown that hits a physical obstacle.
+- Spacebar hold/release, A/D lean, touch controls, existing garage, all 64 motorcycle designs, career save key and question systems are retained. Technical features also appear in local duels.
+
+## Verification and limitations
+
+- JavaScript syntax checked. Chromium tests used inline page loading and simulated local storage because direct file/site navigation was blocked by the test environment. All 28 terrain profiles passed boundary/finite-height checks; all 28 features rendered in both graphics modes (56 renders). No page errors in the final independent-page regression tests.
+- Seeded simulation: small starter-bike log crossings passed at low speed; a sweep of manual-jump timings found 38 speed/launch-position combinations that cleared the first log with zero wheel contacts; a 15 m/s boulder strike triggered an obstacle collision. Tests used precharged suspension for launch timing, not a full live keyboard ride. All 16 solid obstacle features passed isolated low-to-moderate-speed crossing tests on a factory YZ450F after repositioning five difficult obstacles; these are not full course completion tests.
+- Straightaway simulation trace matched v3.0 exactly over 1,200 physics steps, including manual jump input. Career structure and 64-model/28-course counts retained. The terrain system is a simplified two-wheel height-profile simulation rather than rigid-body dynamics.
+- Classroom Chromebook performance, real touchscreen input, full-course traversal, timing targets and reward balancing are not yet verified. Batch 3 will expand technical layouts and Batch 4 will balance difficulty, achievements and rewards. Prior v3.0 and older verification notes follow.
+
+---
+
+# Throttle Quest v3.0 — Technical Terrain Batch 1
+
+Based on the recovered v2.9.1 full motorcycle reconstruction. Install by replacing only `index.html` and `README.md` in the existing repository; export career backup first. No GitHub or PlayForge changes made.
+
+## Manual jumping
+- W/Up throttle, S/Down brake, A/Left lean back, D/Right lean forward. Hold Space (or hold the Jump touch button), then release while rolling on both wheels. Charge is shown on the button. Charge takes approximately 0.48 seconds to fill; very short presses are ignored. Airborne presses cannot queue a jump. A brief landing cooldown prevents repeated impulses.
+- Suspension springs, travel, rebound, bike mass, grip and slope affect launch. Rider crouches during preload, extends in the air and absorbs landing. The original natural ramp flight and suspension system remain in use. Manual impacts and poor landing angles use the existing crash recovery quiz.
+- Manual jumps consume a small amount of fuel/energy. Successful forward jumps of at least 2 m and 0.10 m terrain-relative clearance count toward existing jump metrics. No new direct manual-jump coin reward; existing course, career, learning and natural ramp reward systems remain. New achievements and economy balancing are deferred to Batch 4.
+- Existing 28 course profiles are unchanged. Logs, boulders and new slopes are deferred to Batch 2. This is a game approximation, not real riding advice.
+
 # Throttle Quest v2.9.1 — Full 64-Motorcycle Reconstruction
 
 **Status: Complete manually installable review release.** Based directly on the v2.9 three-bike pilot and the corrected v2.8 cumulative game. GitHub and PlayForge have not been changed.
